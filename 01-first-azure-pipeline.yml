@@ -14,13 +14,14 @@ pool: # Es la maquina desde la cual se va a correr
   jobs: #Aqui se esta dividiendo por jobs (Trabajos)
   - job: Job1 
     steps:  # Estos son los pasos que va correr el pipeline cada vez que se ejecute
-    - script: echo soy el scriptdel job 1
+    - script: echo soy el script del job 1
       displayName: 'Run a one-line script'
 
     - script: |
         echo Add other tasks to build, test, and deploy your project.
         echo See https://aka.ms/yaml
-      displayName: 'Run a multi-line script'
+        displayName: 'Run a multi-line script'
+
   - job: Job2 
     steps:  
      - script: echo soy el scriptdel job 2
