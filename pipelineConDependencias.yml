@@ -1,19 +1,15 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
-trigger: # Esto significa que el pipeline se va a ejecutar cuando se hagan cambios en la rama Master del repositotio
-- master #
 
-pool: # Es la maquina desde la cual se va a correr 
+trigger: 
+- master 
+
+pool: 
   vmImage: 'ubuntu-latest'
 
-# jerarquia Pipelines > etapas > trabajos > tareas(Pasos)
-#Aqui se esta dividiendo por jobs (Trabajos)
+
 jobs: 
 - job: Job1 
-  steps:  # Estos son los pasos que va correr el pipeline cada vez que se ejecute
+  steps:  
   - script: echo soy el script del job 1
     displayName: 'Run a one-line script'
   - script: |
@@ -21,12 +17,12 @@ jobs:
       echo See https://aka.ms/yaml
     displayName: 'Run a multi-line script'
 - job: Job2 
-  dependsOn: Job1
+  dependsOn: Job1 #con esto determinamos que este job2 dependa del job1
   steps:  
   - script: echo soy el script del job 2
     displayName: 'Run a one-line script'
 - job: Job3 
-  dependsOn: Job2
+  dependsOn: Job2 #con esto determinamos que este job3 dependa del job2
   steps:  
   - script: echo soy el script del job 3
     displayName: 'Run a one-line script'
