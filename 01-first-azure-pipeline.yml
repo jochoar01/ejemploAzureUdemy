@@ -19,7 +19,7 @@ pool: # Es la maquina desde la cual se va a correr
     - script: |
         echo Add other tasks to build, test, and deploy your project.
         echo See https://aka.ms/yaml
-        displayName: 'Run a multi-line script'
+      displayName: 'Run a multi-line script'
   - job: Job2 
     steps:  
     - script: echo soy el script del job 2
