@@ -9,11 +9,19 @@ trigger: # Esto significa que el pipeline se va a ejecutar cuando se hagan cambi
 pool: # Es la maquina desde la cual se va a correr 
   vmImage: 'ubuntu-latest'
 
-steps:  # Estos son los pasos que va correr el pipeline cada vez que se ejecute
-- script: echo Hello, world!, Ximena
-  displayName: 'Run a one-line script'
+  # jerarquia Pipelines > etapas > trabajos > tareas(Pasos)
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  jobs: #Aqui se esta dividiendo por jobs (Trabajos)
+  - job: Job1 
+    steps:  # Estos son los pasos que va correr el pipeline cada vez que se ejecute
+    - script: echo soy el scriptdel job 1
+      displayName: 'Run a one-line script'
+
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
+      displayName: 'Run a multi-line script'
+  - job: Job2 
+    steps:  
+     - script: echo soy el scriptdel job 2
+       displayName: 'Run a one-line script'
