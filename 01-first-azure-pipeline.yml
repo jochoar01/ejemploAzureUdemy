@@ -3,13 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+trigger: # Esto significa que el pipeline se va a ejecutar cuando se hagan cambios en la rama Master del repositotio
+- master #
 
-pool:
+pool: # Es la maquina desde la cual se va a correr 
   vmImage: 'ubuntu-latest'
 
-steps:
+steps:  # Estos son los pasos que va correr el pipeline cada vez que se ejecute
 - script: echo Hello, world!, Ximena
   displayName: 'Run a one-line script'
 
