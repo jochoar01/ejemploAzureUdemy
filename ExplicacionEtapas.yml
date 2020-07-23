@@ -7,14 +7,22 @@ stages:
     jobs:
       - job: PrimerJob
         steps:
-        - bash: echo Build PrimerJob
-    jobs:
-      - job: PrimerJob
+          - bash: echo Build PrimerJob
+      - job: SegundoJob
         steps:
-        - bash: echo Build PrimerJob        
+          - bash: echo Build SegundoJob
   - stage: DevDeploy
+    jobs:  
+      - job: DevDeployJob
+        steps:
+          - bash: echo PrimerJobDev
   - stage: QADeploy
+    jobs:  
+      - job: QADeployJob
+        steps:
+          - bash: echo PrimerJobQA  
   - stage: ProdDeploy
-steps:
-  - script: Paso1 Job1
-    displayName: Run a one-line script
+    jobs:  
+      - job: ProdDeployJob
+        steps:
+          - bash: echo PrimerJobProd
