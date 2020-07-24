@@ -29,3 +29,6 @@ stages:
       - job: ProdDeployJob
         steps:
           - bash: echo PrimerJobProd
+# al definir "Stages" le indicamos a nuestro proceso que se va a ejecutar por etapas
+# Jobs es el siguiente en la jerarquias la cual maneja los Steps
+#Steps son los pasos de cada job
