@@ -1,4 +1,4 @@
- trigger:
+trigger:
 - master
 
 pool:
@@ -7,7 +7,7 @@ pool:
 stages:
 - stage: Build
   jobs:
-  - job: PrimerJob
+  - job: FirstJob
     steps:
     - bash: echo Build FirstJob
     - bash: echo $(PipelineLevelVariable)
@@ -24,12 +24,12 @@ stages:
     - bash: mvn -version 
     - bash: ls -R $(Build.ArtifactStagingDirectory)
     - task: CopyFiles@2
-       inputs:
-         SourceFolder: '$(System.DefaultWorkingDirectory)'
-         Contents: |
-           **/*.yaml
-           **/*.tf
-         TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: |
+          **/*.yaml
+          **/*.tf
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
     - bash: ls -R $(Build.ArtifactStagingDirectory)
     - task: PublishBuildArtifacts@1
       inputs:
